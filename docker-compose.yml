@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  isle-evrima:
+    image: isle-of-evrima/server
+    container_name: isle-evrima-server
+    ports:
+      - "7777:7777" # Game port
+      - "15000:15000" # Query port
+      - "25000:25000" # RCON port
+    environment:
+      - SERVER_NAME=Isle Evrima Server
+      - MAX_PLAYERS=16
+      - SERVER_PASSWORD=mysecretpassword
+      - RCON_PASSWORD=myrconpassword
+
+  database:
+    image: postgres:13
+    container_name: isle-evrima-db
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=isle_evrima
+    volumes:
+      - db_data:/var/lib/postgresql/data
+
+volumes:
+  db_data:
+    driver: local
