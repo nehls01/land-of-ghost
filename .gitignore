@@ -1,0 +1,14 @@
+# Isle Evrima Server Projects
+
+# Logs
+logs/
+
+# Compiled binaries
+bin/
+
+# Dependency directories
+node_modules/
+
+# Temporary files
+*.tmp
+*.temp
